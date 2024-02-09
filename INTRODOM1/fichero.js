@@ -73,3 +73,74 @@ image.classList.toggle("byw");
 // Se puede verificar si tiene la clase aplicada con: 
 console.log(image.classList.contains("byw")); //Aca va a dar un true o false.
 
+
+//? EVENTOS:
+//* Evento es una accion / el acto que va a generar una reperción o que se active algo:
+// Creamos un boton en HTML y lo llamamos desde JS
+
+const btn = document.querySelector("#btn");
+//? Ahora añadir un escuchador de EVENTOS:
+    //() nos pide que caso de evento es = CLICK PARA BOTON (cuando se haga Click) +
+    // Luego definimos el evento, definimos que se va a lanzar justo despues = ARROW FUNCTION
+
+    // en esta arrow funcion, dentro de los () podemos tambien declarar una funcion anterior
+// o tambien podemos: ver el prpio evento para analizar (que pasa cuando hago click) 
+
+btn.addEventListener("click", (ev) => {
+    console.log(ev);
+}) 
+
+// Tambien podemos declarar que ante cada CLICK: Se cree un parrafo que se repita como bucle
+// ante cada click: y que se agregue ese parrafo 
+
+btn.addEventListener("click", (ev) => {
+    const p = document.createElement("p");  //creo el p
+    p.innerText = "Has hecho click";        //determino el contenido de p
+    document.body.appendChild(p);           //creo este nuevo hijo en el HTML
+}) 
+//* IMPORTANTE QUE EN CONSOLA ME DEJA VER DONDE FUE EL EVENTO (QUE BOTON POR EJEMPLO O ELEMENTO)
+
+//* 2) EVENTOS DIFERENTES: SCROLL, BUSCADOR... 
+// Aparte de escuchar los eventros de nuestro DOC tamb ir mas alla:
+//* Podemos acceder a Windows para ver el scroller de la pagina
+
+/*window.addEventListener("scroll", (ev) => {
+    console.log(ev);
+}) // me da un evento aprox de cada pixel que scrolleamos (podemos ver detalle en propiedades)
+*/
+//? Crear [Insertar] Modificar [Insertar] Eliminar [Refrescar] (Video 4 30/31)
+
+const technologies = [
+    "JavaScript",
+    "CSS",
+    "HTML",
+    "React",
+    "Angular",
+    "Node.js"
+]
+
+// ACA VEREMOS QUE PODEMOS COMBINAR LOS METODOS DE DOM Y LOS DE JS
+//* ver orden para no perdernos:
+
+//? quiero crear una lista:
+
+const ul = document.createElement("ul"); //aca creamos en el documento una lista vacia
+
+for (const tech of technologies) {         //Para recorrer el array completo uso metodo ForOf JS
+    const li = document.createElement("li"); //Recorre cada uno de los elementos
+    li.innerText = tech; //por cada uno de las vueltas agregame el texto de la misma
+    ul.appendChild(li) // aca ejecuto los li / pero la lista esta en el limbo
+}
+
+document.body.appendChild(ul) // aca ejecuto la ul la lista para que se represente con los li
+
+//? quiero crear un modo noche por ej con un Boton:
+
+const button = document.createElement("button");   //creo el boton
+button.innerText = "Theme";                        // Boton texto: tema
+
+button.addEventListener("click", (ev) => {         // aca ejecuto toodle
+    document.body.classList.toggle("light")        // determino la accion de click= light/no light
+});
+
+document.body.appendChild(button);                 //imprimo el boton en la pagina 

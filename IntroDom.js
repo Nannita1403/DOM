@@ -1,4 +1,4 @@
-//* Video de INTRO DOM 1
+//* Video de INTRO DOM 1/9
 // como usar js en html: 
 
 //! 1ra manera:
@@ -105,4 +105,52 @@ image.classList.toggle("byw");
 
 // Se puede verificar si tiene la clase aplicada con: 
 console.log(image.classList.contains("byw")); //Aca va a dar un true o false.
+
+console.log("-----------------------------------");
+//! 3er video 28/31
+
+//? como controlar los imputs de los usuarios en la web = EVENTOS DE USUARIOS
+
+//* Evento es una accion / el acto que va a generar una reperción o que se active algo:
+//EJ. Prender la luz(evento=acto) es el paso de energia y Aparla (NVO evento/acto) es el corte de energia
+
+// Podemos saber todo: quien lo hizo, en que parte de la web, que selecciono, que toco
+
+//? EVENTOS:
+// Creamos un boton en HTML y lo llamamos desde JS
+
+const btn = document.querySelector("#btn");
+//? Ahora añadir un escuchador de EVENTOS:
+    //() nos pide que caso de evento es = CLICK PARA BOTON (cuando se haga Click) +
+    // Luego definimos el evento, definimos que se va a lanzar justo despues = ARROW FUNCTION
+
+    // en esta arrow funcion, dentro de los () podemos tambien declarar una funcion anterior
+// o tambien podemos: ver el prpio evento para analizar (que pasa cuando hago click) 
+
+btn.addEventListener("click", (ev) => {
+    console.log(ev);
+}) 
+
+// Tambien podemos declarar que ante cada CLICK: Se cree un parrafo que se repita como bucle
+// ante cada click: y que se agregue ese parrafo 
+
+btn.addEventListener("click", (ev) => {
+    const p = document.createElement("p");  //creo el p
+    p.innerText = "Has hecho click";        //determino el contenido de p
+    document.body.appendChild(p);           //creo este nuevo hijo en el HTML
+}) 
+//* IMPORTANTE QUE EN CONSOLA ME DEJA VER DONDE FUE EL EVENTO (QUE BOTON POR EJEMPLO O ELEMENTO)
+
+//? 2) EVENTOS DIFERENTES: SCROLL, BUSCADOR... 
+// Aparte de escuchar eventos del documento, podemos escuchar eventos del Navegador
+//! WINDOWS ES ESCALABLE COMO UN DOCUMENTO (ES COMO EL PADRE DEL DOC)
+//* Podemos acceder a Windows para ver el scroller de la pagina
+
+window.addEventListener("scroll", (ev) => {
+    console.log(ev);
+}) // me da un evento aprox de cada pixel que scrolleamos (podemos ver detalle en propiedades)
+
+console.log("--------------------------------------------");
+
+//! Video 4 : 30/31 Crear [Insertar] Modificar [Insertar] Eliminar [Refrescar]
 
