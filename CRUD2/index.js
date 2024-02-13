@@ -9,18 +9,18 @@
 const myH1 = document.querySelector("h1");
 
 //! UPDATE
-console.log(myH1.innerHTML);
-console.log(myH1.innerText);
-console.log(myH1.textContent);
-console.log(myH1.clientWidth);
+console.log(myH1.innerHTML);    //veo el texto del H1
+console.log(myH1.innerText);    //veo el texto del H1
+console.log(myH1.textContent);  //veo el texto del H1
+console.log(myH1.clientWidth);  // veo el ancho del cliente
 
 myH1.textContent = "He cambiado ya no soy el mismo";
 /* myH1.style.position = "absolute";
 myH1.style.top = "200px"; */
-/* myH1.className = "";
-myH1.classList.add();
-myH1.classList.remove();
-myH1.classList.toggle(); */
+/* myH1.className = "";         //
+myH1.classList.add();           //
+myH1.classList.remove();        //
+myH1.classList.toggle(); */     //
 
 // sustituir / sobreescribir -> una clase
 /* myH1.className = "cambiado";
@@ -28,7 +28,7 @@ myH1.classList.add("añadido");
 myH1.classList.remove("cambiado");
 myH1.classList.toggle("cambiado"); */
 
-const arrayImgs = [
+const arrayImgs2 = [
   "https://www.tooltyp.com/wp-content/uploads/2014/10/1900x920-8-beneficios-de-usar-imagenes-en-nuestros-sitios-web.jpg",
   "https://i.blogs.es/ceda9c/dalle/450_1000.jpg",
   "https://dealgoritmos.com/wp-content/uploads/2023/05/6d8841b6-9d24-457a-95c5-0d3de1d7bf5f.png",
@@ -37,7 +37,7 @@ const arrayImgs = [
 ];
 
 const img = document.querySelector("img");
-img.src = arrayImgs[Math.floor(Math.random() * arrayImgs.length)];
+img.src = arrayImgs2[Math.floor(Math.random() * arrayImgs2.length)];
 
 
 //! DELETE
@@ -62,7 +62,7 @@ myP.textContent = "He añadido contenido de texto a mi párrafo creado mediante 
 // meter el párrafo dentro del div
 // necesito el div
 // READ
-const myDiv = document.querySelector(".insert-here");
+const myDiv2 = document.querySelector(".insert-here");
 
 /* myDiv.append(myP); */
 
@@ -74,7 +74,7 @@ document.body.insertBefore(myP, img);
 
 
 
-
+/*
 
 //! Mini ejercicios
 const alumns = [
@@ -128,7 +128,8 @@ const alumns = [
         <p></p>
     </li>
 </ul> 
-*/}
+} /*
+
 
 const alumnsList = document.createElement("ul");
 
@@ -170,7 +171,7 @@ for (const alumn of alumns) {
     
     li.append(p);
     alumnsList.append(li);
-}
+/*
 
 for (const alumn of alumns) {
     alumnsList.innerHTML += `
@@ -183,3 +184,4 @@ for (const alumn of alumns) {
 }
 
 // document.body.append(alumnsList);
+
