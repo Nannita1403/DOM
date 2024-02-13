@@ -64,20 +64,47 @@ console.log("querySelectorAll por clase", document.querySelectorAll("p.aprobado 
 // READ
 const allMyAlumns = document.querySelectorAll("p"); // array
 
-for (const alumn of allMyAlumns) {
-    if (parseInt(alumn.firstChild.nextSibling.textContent) >= 5) {
-        alumn.className = "aprobado";
-    } else {
-        alumn.className = "suspendido";
+//? 1) OPCION DE PASO CAMBIO DE CLASE; PASADO 5 SEGUNDOS SE CAMBIAN LOS APROBADOS Y MODIFICAN EL COLOR POR EJ.
+//* opcion para cambiar una clase para cambiar de aprobado a suspendido, y se cambia el color:
+/* setTimeout(() => {
+    for (const aprobado of allMyAprobados) {    // Aca tomo a todos los aprobados
+        aprobado.className = "suspendido"       // Aca determino que todos los aprobados se transformen en suspendidos
     }
-}
+}, 500);*/
 
-// UPDATE
+//! Tener en cuenta que en CSS se termina los colores de p.aprobados y de p.suspendidos
+
+//? 2) OPCION DE PASO CAMBIO DE CLASE:
+//* Aca lo que voy a hacer es un set interval(un bucle infinito cada 1 segundo);
+
+setInterval={}(() => {
+    for (const aprobado of allMyAprobados) {    // Aca tomo a todos los aprobados
+        if (aprobado.className === "suspendido") { //aca pregunto si esta suspendido..
+            aprobado.className = "aprobado";       //sino los aprobados son aprobados
+        }  else {
+            aprobado.className = "suspendido";      // los demas sino son siempre suspendido
+        }
+    }
+}, 1000);
+
+//? 3) ACA QUIERO PODER FILTRAR A LOS ALUMNOS POR LAS NOTAS Y QUE EL SISTEMA SOLO LOS DETERMINE APROBADOS O SUSPENSOS:
+//* Aca lo que voy a hacer es un set interval(un bucle infinito cada 1 segundo);
+
+/*
+for (const alumn of allMyAlumns) {          // aca tomo a cada alumn
+    //*   alumno. primer hijo(nombre de alumno).siguiente hermano(span con la clase nota).texto(nota)  
+    /! parseInt: transforma un string a numero)
+    if (parseInt(alumn.firstChild.nextSibling.textContent) >= 5) { //* determino que si la nota es mayor o igual a 5
+        alumn.className = "aprobado";                   //* estonces esta aprobado
+    } else {
+        alumn.className = "suspendido";                 //* Sino va a estar aprobado
+    }
+}*/
+//? 4) Aca es lo mismo que arriba, pero con TOGGLE:
+
 /* setInterval(() => {
     for (const aprobado of allMyAlumns) {
-        aprobado.style.color = "red";
-        aprobado.style.fontSize = "40px";
-        aprobado.classList.toggle("aprobado");
+        aprobado.classList.toggle("aprobado"); // toggle es ponerla o quitarla (es un bucle en si mismo)
         if (aprobado.className === "suspendido") {
             aprobado.className = "aprobado";
         } else {
