@@ -1,4 +1,5 @@
 //! CRUD -> siglas -> CREATE READ UPDATE DELETE
+//*  son las cosas que puedes hacer para hacer un crud completo 
 
 //? CREATE -> crear información en el DOM
 //? READ -> leer información del DOM
@@ -14,7 +15,7 @@
 //? Boolean
 //? Array
 
-// array no es un tipo de dato como tal
+// array no es un tipo de dato como tal es un OBJETO
 /* console.log(typeof []); */
 
 //! hay muchísimos métodos en DOM, muchos harán lo mismo o prácticamente lo mismo
@@ -29,23 +30,25 @@ console.log(myH1); */
 
 //? MÉTODOS READ
 
-//* getElementsByTagName selecciona del DOM TODOS los elementos que cumplan con el nombre de etiqueta aportado -> devuelve un array de nodos (HTMLCollection)
+//! getElementsByTagName selecciona del DOM TODOS los elementos que cumplan con el nombre de etiqueta aportado 
+//! -> devuelve un array de nodos (HTMLCollection)
+
 console.log("getElementsByTagName", document.getElementsByTagName("h1"));
 
-//* getElementById selecciona el Nodo de nuestro HTML por id
+//! getElementById selecciona el Nodo de nuestro HTML por id
 console.log("getElementById", document.getElementById("alumnoDelMes"));
 
-//* getElementsByClassName traer TODOS los elementos que tengan la clase aprobado
+//! getElementsByClassName traer TODOS los elementos que tengan la clase aprobado
 console.log("getElementsByClassName", document.getElementsByClassName("aprobado"));
 
-//* querySelector selecciono UN único elemento por la condición que le indique (primero)
+//! querySelector selecciono UN único elemento por la condición que le indique (primero)
 console.log("querySelector por etiqueta", document.querySelector("h1"));
 console.log("querySelector por id", document.querySelector("#alumnoDelMes"));
 console.log("querySelector por clase", document.querySelector(".aprobado"));
 console.log("querySelector por clase", document.querySelector("p.aprobado"));
 console.log("querySelector por clase", document.querySelector("p.aprobado > span.nota"));
 
-//* querySelector selecciono UN único elemento por la condición que le indique (primero)
+//! querySelector selecciono UN único elemento por la condición que le indique (primero)
 console.log("querySelectorAll por etiqueta", document.querySelectorAll("h1"));
 console.log("querySelectorAll por id", document.querySelectorAll("#alumnoDelMes"));
 console.log("querySelectorAll por clase", document.querySelectorAll(".aprobado"));
