@@ -28,22 +28,23 @@ myH1.classList.add("añadido");
 myH1.classList.remove("cambiado");
 myH1.classList.toggle("cambiado"); */
 
-const arrayImgs2 = [
-  "https://www.tooltyp.com/wp-content/uploads/2014/10/1900x920-8-beneficios-de-usar-imagenes-en-nuestros-sitios-web.jpg",
-  "https://i.blogs.es/ceda9c/dalle/450_1000.jpg",
-  "https://dealgoritmos.com/wp-content/uploads/2023/05/6d8841b6-9d24-457a-95c5-0d3de1d7bf5f.png",
-  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-  "https://i.pinimg.com/originals/ae/ca/bb/aecabbb80f83af71ad05737e2ae2a483.jpg",
+const arrayImg = [
+    "https://tse2.mm.bing.net/th?id=OIP.W65e6yHYVkJPaQKo3NJ_QQHaEo&pid=Api&P=0&h=180",
+    "https://tse2.mm.bing.net/th?id=OIP.hXJ4lT8pFi5hXI56W5z77wHaE8&pid=Api&P=0&h=180",
+    "https://tse3.mm.bing.net/th?id=OIP.VPWV_1KIYXUZvlfQgKq48gHaLG&pid=Api&P=0&h=180",
+    "https://tse4.mm.bing.net/th?id=OIP.YQAL4E88_z3ygw4jwO3VsAHaEK&pid=Api&P=0&h=180",
+    "https://tse4.mm.bing.net/th?id=OIP.UaFeQquHHLSOSmiT7ygu6QHaEK&pid=Api&P=0&h=180",
 ];
 
 const img = document.querySelector("img");
-img.src = arrayImgs2[Math.floor(Math.random() * arrayImgs2.length)];
+// Yo quiero que cuando entres a la pagina te de una imagen random
+img.src = arrayImg[Math.floor(Math.random() * arrayImg.length)];
 
+//! Math.floor(Math.random() * arrayImg.length = da una posicion aliatoria del array
 
 //! DELETE
 // remove() -> es un método que elimina un único de html desde js
 myH1.remove();
-
 
 //! CREATE
 // para crear un nodo en html desde js utilizaremos el método createElement();
@@ -59,129 +60,14 @@ myP.textContent = "He añadido contenido de texto a mi párrafo creado mediante 
 /* document.body.appendChild(myP); */
 
 
-// meter el párrafo dentro del div
+//? meter el párrafo dentro del div  siempre al final
 // necesito el div
 // READ
-const myDiv2 = document.querySelector(".insert-here");
+const myDiv = document.querySelector(".insert-here");
 
-/* myDiv.append(myP); */
+ myDiv.appendChild(myP);
 
-// elementoPadre.insertBefore(elementoHijo, elementoAdyacente);
+// ? Aca lo que hago es enviar el parrafo donde quiero, por ej antes del div
+ // elementoPadre.insertBefore(elementoHijo, elementoAdyacente);
 document.body.insertBefore(myP, img);
-
-
-
-
-
-
-/*
-
-//! Mini ejercicios
-const alumns = [
-    {
-        name: "Nadia",
-        score: 0
-    },
-    {
-        name: "Rocío",
-        score: 0
-    },
-    {
-        name: "Ignacio",
-        score: 3
-    },
-    {
-        name: "Jeggan",
-        score: 6
-    },
-    {
-        name: "Johan",
-        score: 3
-    },
-    {
-        name: "Eva",
-        score: 0
-    },
-    {
-        name: "Alba",
-        score: 6
-    },
-    {
-        name: "Martin",
-        score: 0
-    },
-    {
-        name: "Kevin",
-        score: 6
-    },
-]
-
-{/* 
-<ul>
-    <li>
-        <p></p>
-    </li>
-    <li>
-        <p></p>
-    </li>
-    <li>
-        <p></p>
-    </li>
-</ul> 
-} /*
-
-
-const alumnsList = document.createElement("ul");
-
-// añadir una clase mediaNegativa o mediaPositiva a nuestro ul, dependiendo de si la media de notas de los alumnos es mayor o igual a 5 (mediaPositiva) o menor o igual (mediaNegativa);
-
-let sum = 0;
-
-for (let i = 0; i < alumns.length; i++) {
-    const alumn = alumns[i];
-    
-    sum += alumn.score;
-}
-
-// sum / alumns.length
-
-if ((sum / alumns.length) >= 5) {
-    alumnsList.className = "mediaPositiva";
-} else {
-    alumnsList.className = "mediaNegativa";
-}
-
-for (const alumn of alumns) {
-    const li = document.createElement("li");
-    const p = document.createElement("p");
-    
-    /* if (alumn.score >= 5) {
-        p.className = "aprobado"
-    } else {
-        p.className = "suspenso"
-    } */
-
-    //! casos en los que no lo utilizaría: cuando tengamos una respuesta muy larga a una condición - si tengo muchas comprobaciones
-    // condición     ? respuesta si se cumple   : respuesta si no se cumple
-    alumn.score >= 5 ? p.className = "aprobado" : p.className = "suspenso";
-
-    p.textContent = `${alumn.name} tiene un score de: ${alumn.score}`;
-
-    li.addEventListener("click", () => alert(`has hecho click en el alumn: ${alumn.name}`));
-    
-    li.append(p);
-    alumnsList.append(li);
-/*
-
-for (const alumn of alumns) {
-    alumnsList.innerHTML += `
-        <li>
-            <p class="${alumn.score >= 5 ? 'aprobado' : 'suspenso'}">
-                ${alumn.name} tiene una puntuación de: ${alumn.score}
-            </p>
-        </li>
-    `
-}
-
-// document.body.append(alumnsList);
 
