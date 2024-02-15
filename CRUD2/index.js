@@ -70,4 +70,3 @@ const myDiv = document.querySelector(".insert-here");
 // ? Aca lo que hago es enviar el parrafo donde quiero, por ej antes del div
  // elementoPadre.insertBefore(elementoHijo, elementoAdyacente);
 document.body.insertBefore(myP, img);
-
