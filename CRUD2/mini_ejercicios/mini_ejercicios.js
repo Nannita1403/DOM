@@ -5,7 +5,7 @@
 const alumns = [
     {
         name: "Nadia",
-        score: 7
+        score: 0
     },
     {
         name: "Rocío",
@@ -17,7 +17,7 @@ const alumns = [
     },
     {
         name: "Jeggan", 
-        score: 6
+        score: 2
     },
     {
         name: "Johan",
@@ -25,7 +25,7 @@ const alumns = [
     },
     {
         name: "Eva",
-        score: 9
+        score: 4
     },
     {
         name: "Alba",
@@ -33,7 +33,7 @@ const alumns = [
     },
     {
         name: "Martin",
-        score: 0
+        score: 6
     },
     {
         name: "Kevin",
@@ -79,70 +79,67 @@ for (const alumn of alumns) {
         p.className = "suspendido"
     }
  //? HAY UNA MANERA MAS RAPIDA PARA IF- ELSE CUANDO NO HAY MUCHAS OPCIONES:
+ //! casos en los que no lo utilizaría: cuando tengamos una respuesta muy larga a una condición - si tengo muchas comprobaciones
+
      // condición    ? respuesta si se cumple   : respuesta si no se cumple
     alumn.score >= 5 ? p.className = "aprobado" : p.className = "suspedido";
     
     p.textContent = `${alumn.name} tiene un score de: ${alumn.score}`;
 
+    li.addEventListener("click", () => alert(`has hecho click en el alumn: ${alumn.name}`));
+    
     li.append(p); //pongo el p dentro del li
     alumnList.append(li); //pongo el li dentro del ul que es la alumnList
  }
  document.body.append(alumnList);  // aca lo que hago es INSERTO la LISTA  en el Body
 
- //? HAY UNA MANERA MAS RAPIDA PARA IF- ELSE CUANDO NO HAY MUCHAS OPCIONES:
+ 
+//? añadir una clase mediaNegativa o mediaPositiva a nuestro ul, dependiendo de si la media de notas 
+//? de los alumnos es mayor o igual a 5 (mediaPositiva) o menor o igual (mediaNegativa);
 
 
-// añadir una clase mediaNegativa o mediaPositiva a nuestro ul, dependiendo de si la media de notas de los alumnos es mayor o igual a 5 (mediaPositiva) o menor o igual (mediaNegativa);
-/* 
-let sum = 0;
+let sum = 0; // para sacar la suma de los alumnos
 
 for (let i = 0; i < alumns.length; i++) {
     const alumn = alumns[i];
     
-    sum += alumn.score;
+    sum += alumn.score; //sumamos cada score de cada alumno
 }
 
-// sum / alumns.length
+// sum / alumns.length //* media de la suma de score / los alumnos 
 
-if ((sum / alumns.length) >= 5) {
-    alumnsList.className = "mediaPositiva";
+if ((sum / alumns.length) >= 5) {  //si la media es > o = que 5
+    alumnList.className = "mediaPositiva";  //le doy el valor de media positiva
 } else {
-    alumnsList.className = "mediaNegativa";
+    alumnList.className = "mediaNegativa"; //le doy el valor media negativa
 }
 
 for (const alumn of alumns) {
     const li = document.createElement("li");
-    const p = document.createElement("p");
+    const p = document.createElement("p"); 
     
-    /* if (alumn.score >= 5) {
-        p.className = "aprobado"
-    } else {
-        p.className = "suspenso"
-    } 
-
-    //! casos en los que no lo utilizaría: cuando tengamos una respuesta muy larga a una condición - si tengo muchas comprobaciones
-    // condición     ? respuesta si se cumple   : respuesta si no se cumple
+//! Yo puedo integrar HTML desde JS - todo esto remplaza lo anterior:
+//? PROBLEMA ACA ES QUE QUE ACA NO SE PUEDEN  GENERAR NODOS (CON LO CUAL NO PUEDO METER FUNCIONALIDAD)
+//? Ademas: al JS procesarse al final: este ultimo come al for inicial que si tiene un evento por ej. y se vuelve toodo texto
+    for (const alumn of alumns) {
+//ACA ME PERMITE CREAR HTML DESDE JS //* ACA SIEMPRE ``PARA PODER USAR VARIABLES
+        alumnList.innerHTML += `    
+            <li>
+                <p class="${alumn.score >= 5 ? 'aprobado' : 'suspenso'}">
+                    ${alumn.name} tiene una puntuación de: ${alumn.score}
+                </p>
+            </li>
+        `
+    }
     
-    alumn.score >= 5 ? p.className = "aprobado" : p.className = "suspenso";
-
-    p.textContent = `${alumn.name} tiene un score de: ${alumn.score}`;
+     document.body.append(alumnList);   
+    /* 
+    
 
     li.addEventListener("click", () => alert(`has hecho click en el alumn: ${alumn.name}`));
     
     li.append(p);
     alumnsList.append(li);
 
-
-for (const alumn of alumns) {
-    alumnsList.innerHTML += `
-        <li>
-            <p class="${alumn.score >= 5 ? 'aprobado' : 'suspenso'}">
-                ${alumn.name} tiene una puntuación de: ${alumn.score}
-            </p>
-        </li>
-    `
-}
-
- document.body.append(alumnsList);
-
 */
+}
